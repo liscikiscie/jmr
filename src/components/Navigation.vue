@@ -45,6 +45,10 @@
             padding-top: 23px;
             width: 619px;
 
+            @media only screen and (min-width: $tablet) {
+                padding-top: 43px;
+            }
+
             li {
                 height: 36px;
                 display: flex;
@@ -58,8 +62,8 @@
             }
 
             .logo-icon {
-                height: 45px;
-                width: 36px;
+                height: 55px;
+                width: 50px;
                 transform: rotate(22deg);
             }
         }

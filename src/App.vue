@@ -5,47 +5,25 @@
                 <Navigation/>
                 <router-view/>
             </div>
-            <div class="main__container">
-                <EnterTheGates @openModal="toggle"/>
-            </div>
-            <div class="footer__container">
-                <Footer/>
-            </div>
-            <LogInPupUp v-if="logInPopUp"
-                        @closeModal="toggle"/>
         </div>
     </div>
 </template>
 
 <script>
     import Navigation from '@/components/Navigation';
-    import EnterTheGates from '@/components/EnterTheGates';
-    import Footer from '@/components/Footer';
-    import LogInPupUp from '@/components/LogInPupUp';
 
     export default {
-        data() {
-            return {
-                logInPopUp: true
-            }
-        },
         components: {
-            LogInPupUp,
-            Footer,
-            EnterTheGates,
             Navigation
-        },
-        methods: {
-            toggle() {
-                this.logInPopUp = !this.logInPopUp;
-            }
         }
     }
 </script>
 
 <style lang="scss">
     #app {
-
+        font-family: Aleo, sans-serif;
+        font-size: $mainFontSize;
+        color: $mainFontColor;
     }
 
     .app__container {
@@ -56,37 +34,22 @@
         background-repeat: no-repeat;
         background-position: center;
         position: relative;
+        box-shadow: inset 0 300px 240px -10px rgba(0, 0, 0, .48);
 
-        .main__container {
-            margin-top: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            @media only screen and (min-width: $mobileSmallLandscape) {
-                margin-top: 50px;
-            }
-
-            @media only screen and (min-width: $mobileMidLandscape) {
-                margin-top: 300px;
-            }
-
-            @media only screen and (min-width: $smallDesktop) {
-                margin-top: 180px;
-            }
-
-            @media only screen and (min-width: $smallDesktop) {
-                margin-top: 180px;
-            }
-
-            @media only screen and (min-width: $desktop) {
-                margin-top: 300px;
-            }
+        @media only screen and (min-width: $mobileSmallLandscape) {
+            box-shadow: inset 0 300px 160px -10px rgba(0, 0, 0, .48);
         }
 
-        .footer__container {
-            position: fixed;
-            bottom: 0;
+        @media only screen and (min-width: $mobileMidLandscape) {
+            box-shadow: inset 0 300px 320px -10px rgba(0, 0, 0, .48);
+        }
+
+        @media only screen and (min-width: $smallDesktop) {
+            box-shadow: inset 0 300px 480px -10px rgba(0, 0, 0, .48);
+        }
+
+        @media only screen and (min-width: $desktop) {
+            box-shadow: inset 0 361px 620px -10px rgba(0, 0, 0, .48);
         }
     }
 

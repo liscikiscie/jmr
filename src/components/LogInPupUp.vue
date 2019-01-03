@@ -16,7 +16,7 @@
                         @click="logIn">
                     LOG IN
                 </button>
-                <div v-if="this.info !==null"
+                <div v-if="this.info !== null"
                      class="response__info">
                     {{this.info}}
                 </div>
@@ -51,9 +51,6 @@
                         {
                             'login': this.logInForm.email,
                             'password': this.logInForm.password
-                            // 'login': 'correct_login@example.com',
-                            // 'password': 'C0rr3Ct_P@55w0rd'
-
                         },
                         {
                             headers: {'Content-Type': 'application/json'}
@@ -86,9 +83,9 @@
             right: 0;
             top: 0;
             bottom: 0;
-            max-width:100%;
-            max-height:100%;
-            overflow:auto;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: auto;
             margin: auto;
             z-index: 10;
 
@@ -106,6 +103,8 @@
                 .form__header {
                     font-family: Aleo, sans-serif;
                     margin-top: 15px;
+                    color: $thirdFontColor;
+                    font-size: $popUpFontSize;
 
                     @media only screen and (min-width: $mobileMidLandscape) {
                         margin-top: 44px;
@@ -163,6 +162,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    color: $thirdFontColor;
                 }
             }
         }

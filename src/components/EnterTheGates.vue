@@ -3,9 +3,9 @@
         <section>
             <div class="main__wrapper">
                 <h1 class="header__text">{{ headText }}</h1>
-                <div class="main__button--holder">
-                    <div @click="openLoginPopUp"
-                         class="main__button">
+                <div class="main__button--holder"
+                     @click="openLoginPopUp">
+                    <div class="main__button">
                         {{ logInButton }}
                     </div>
                 </div>
