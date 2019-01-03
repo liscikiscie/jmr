@@ -34,10 +34,16 @@
 
 <style scoped lang="scss">
     .nav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         .nav-list {
             display: flex;
             justify-content: space-around;
             padding-top: 23px;
+            width: 619px;
 
             li {
                 height: 36px;

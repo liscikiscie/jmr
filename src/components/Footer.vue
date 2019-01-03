@@ -8,7 +8,7 @@
                 <div class="footer__privacy-policy">
                     <ul>
                         <li>{{ cookies }}</li>
-                        |
+                         |
                         <li>{{ privacy }}</li>
                     </ul>
                 </div>
@@ -42,8 +42,11 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        opacity: .46;
-        background-color: $backgroundColor;
+        background-color: rgba(0, 0, 0, .43);
+
+        @media only screen and (min-width: $mobileSmallLandscape) {
+            justify-content: space-around;
+        }
 
         .footer__copyrights {
             color: $secondaryFontColor;
@@ -56,6 +59,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            @media only screen and (min-width: $mobileSmallLandscape) {
+
+                ul {
+                    width: 80px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row;
+                }
+            }
         }
 
         .footer__project-author {

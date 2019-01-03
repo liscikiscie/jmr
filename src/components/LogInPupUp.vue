@@ -16,9 +16,14 @@
                         @click="logIn">
                     LOG IN
                 </button>
+                <div v-if="this.info !==null"
+                     class="response__info">
+                    {{this.info}}
+                </div>
             </form>
         </div>
-        <div class="overlay"></div>
+        <div class="overlay"
+             @click="closeModal"></div>
     </div>
 </template>
 
@@ -37,26 +42,27 @@
             }
         },
         methods: {
+            closeModal() {
+                this.$emit('closeModal')
+            },
             logIn() {
                 axios
                     .post('https://recruitment-api.pyt1.stg.jmr.pl/login',
                         {
-                            // 'login': this.logInForm.email,
-                            // 'password': this.logInForm.password
-                            'login': 'correct_login@example.com',
-                            'password': 'C0rr3Ct_P@55w0rd'
+                            'login': this.logInForm.email,
+                            'password': this.logInForm.password
+                            // 'login': 'correct_login@example.com',
+                            // 'password': 'C0rr3Ct_P@55w0rd'
 
                         },
                         {
                             headers: {'Content-Type': 'application/json'}
                         })
                     .then(response => {
-                        console.log(response.data.message);
-                        this.info = response;
+                        this.info = response.data.message;
                     })
                     .catch(error => {
-                        console.log(error);
-                        this.info = error;
+                        this.info = error.data.message;
                     })
             }
         }
@@ -71,15 +77,25 @@
         top: 0;
         left: 0;
 
-
         .logIn__container {
-            height: 220px;
-            width: 220px;
+            height: 240px;
+            width: 230px;
             background-color: $popUpBcgColor;
             position: absolute;
-            top: 24%;
-            left: 16%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            max-width:100%;
+            max-height:100%;
+            overflow:auto;
+            margin: auto;
             z-index: 10;
+
+            @media only screen and (min-width: $mobileMidLandscape) {
+                height: 341px;
+                width: 366px;
+            }
 
             .form__wrapper {
                 display: flex;
@@ -90,6 +106,10 @@
                 .form__header {
                     font-family: Aleo, sans-serif;
                     margin-top: 15px;
+
+                    @media only screen and (min-width: $mobileMidLandscape) {
+                        margin-top: 44px;
+                    }
                 }
 
                 #email {
@@ -97,9 +117,14 @@
                     border: none;
                     border-bottom: 1px solid black;
                     text-align: center;
-                    padding: 30px 0 15px 0;
+                    padding: 30px 0 13px 0;
                     font-family: Aleo, sans-serif;
                     font-size: $mainFontSize;
+
+                    @media only screen and (min-width: $mobileMidLandscape) {
+                        margin-top: 30px;
+                        width: 80%;
+                    }
                 }
 
                 #password {
@@ -107,9 +132,14 @@
                     border: none;
                     border-bottom: 1px solid black;
                     text-align: center;
-                    padding: 30px 0 15px 0;
+                    padding: 30px 0 13px 0;
                     font-family: Aleo, sans-serif;
                     font-size: $mainFontSize;
+
+                    @media only screen and (min-width: $mobileMidLandscape) {
+                        margin-top: 30px;
+                        width: 80%;
+                    }
                 }
 
                 .logIn__button--submit {
@@ -119,9 +149,22 @@
                     background-color: $buttonBcgColor;
                     border-radius: 24px;
                     border: none;
+
+                    @media only screen and (min-width: $mobileMidLandscape) {
+                        width: 265px;
+                        height: 48px;
+                    }
+                }
+
+                .response__info {
+                    height: 20px;
+                    width: 100%;
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
-
         }
 
         .overlay {
@@ -129,7 +172,6 @@
             width: 100vw;
             opacity: .73;
             background-color: $backgroundColor;
-
         }
     }
 

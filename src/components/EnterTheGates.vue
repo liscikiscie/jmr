@@ -41,6 +41,14 @@
             font-size: 48px;
             font-family: 'Bakery', sans-serif;
             color: $mainFontColor;
+
+            @media only screen and (min-width: $mobileMidLandscape) {
+                font-size: 90px;
+            }
+
+            @media only screen and (min-width: $smallDesktop) {
+                font-size: 120px;
+            }
         }
 
         .main__button--holder {
@@ -54,9 +62,20 @@
             border-radius: 24px;
             cursor: pointer;
 
+            @media only screen and (min-width: $mobileMidLandscape) {
+                margin-top: 49px;
+                width: 265px;
+                height: 48px;
+                border: 2px solid white;
+            }
+
             .main__button {
                 color: $mainFontColor;
                 font-size: $secondaryFontSize;
+
+                @media only screen and (min-width: $mobileMidLandscape) {
+                    font-size: $mainFontSize;
+                }
             }
         }
     }

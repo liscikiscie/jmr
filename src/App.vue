@@ -1,15 +1,18 @@
 <template>
     <div id="app">
         <div class="app__container">
-            <Navigation/>
-            <router-view/>
+            <div class="nav__container">
+                <Navigation/>
+                <router-view/>
+            </div>
             <div class="main__container">
                 <EnterTheGates @openModal="toggle"/>
             </div>
             <div class="footer__container">
                 <Footer/>
             </div>
-            <LogInPupUp v-if="logInPopUp"/>
+            <LogInPupUp v-if="logInPopUp"
+                        @closeModal="toggle"/>
         </div>
     </div>
 </template>
@@ -23,7 +26,7 @@
     export default {
         data() {
             return {
-                logInPopUp: false
+                logInPopUp: true
             }
         },
         components: {
@@ -59,6 +62,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            @media only screen and (min-width: $mobileSmallLandscape) {
+                margin-top: 50px;
+            }
+
+            @media only screen and (min-width: $mobileMidLandscape) {
+                margin-top: 300px;
+            }
+
+            @media only screen and (min-width: $smallDesktop) {
+                margin-top: 180px;
+            }
+
+            @media only screen and (min-width: $smallDesktop) {
+                margin-top: 180px;
+            }
+
+            @media only screen and (min-width: $desktop) {
+                margin-top: 300px;
+            }
         }
 
         .footer__container {
